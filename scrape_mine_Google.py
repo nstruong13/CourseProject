@@ -142,7 +142,7 @@ def tokens_lowercase(doc):
 if __name__ == "__main__":
     # change query here to user input
     # query = "text mining"
-    query = sys.argv[0]
+    query = sys.argv[1]
     get_text_data(query)
     '''
     sites = scrape_google(query)
