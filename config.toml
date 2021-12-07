@@ -1,0 +1,13 @@
+#Add this as a config.toml file to your project directory
+prefix = "."
+stop-words = "lemur-stopwords.txt"
+
+dataset = "google_corpus"
+corpus = "line.toml"
+index = "idx"
+
+[[analyzers]]
+method = "ngram-word"
+ngram = 1
+filter = [{type = "icu-tokenizer", suppress-tags = true}, {type = "length", min = 2, max = 10000}, {type = "lowercase"}, {type = "list", file = "lemur-stopwords.txt"}, {type = "porter2-filter"}]
+
