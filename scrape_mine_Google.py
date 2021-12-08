@@ -124,7 +124,7 @@ def tokens_lowercase(doc):
     tok = metapy.analyzers.Porter2Filter(tok)
     ana = metapy.analyzers.NGramWordAnalyzer(1, tok)
     unigrams = ana.analyze(doc)
-    #print(unigrams)
+
     tokens = [token for token in tok]
     
     tok.set_content(doc.content())
@@ -134,9 +134,6 @@ def tokens_lowercase(doc):
         n+=1
         counts.append(count)
         tokens.append(token)
-    # print(n)
-    # print(counts)
-    # print(tokens)
     return unigrams
 
 if __name__ == "__main__":
@@ -176,7 +173,6 @@ if __name__ == "__main__":
         new_corpus.append(tokens)
         #print(tokens)
     #print(new_corpus)
-    print("\n")
 
 
     lexicon = {} # Doc ID, Term --> Frequency
@@ -192,3 +188,16 @@ if __name__ == "__main__":
     lex_list = sorted(lexicon.items(), key=lambda x:x[1], reverse = True)
     sorted_lexicon = dict(lex_list)
     print(sorted_lexicon)
+
+    postings = {}
+    for key in sorted_lexicon:
+        #print(key)
+        for document in range(len(new_corpus)):
+            #print(document)
+            if key in postings and key in new_corpus[document]:
+                #print(postings[key])
+                postings[key].append([document, new_corpus[document][key]])
+            else:
+                if key in new_corpus[document]:
+                    postings[key] = [[document,new_corpus[document][key]]]
+    #print(postings)
