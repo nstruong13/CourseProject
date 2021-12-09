@@ -53,7 +53,8 @@ def scrape_google(query):
                       'https://www.youtube.',
                       'https://twitter.',
                       'https://play.google.',
-                      'https://apps.apple.')
+                      'https://apps.apple.',
+                       'https://search.google.')
     for url in links[:]:
         if (url.startswith(unwanted_domains)):
             links.remove(url)
