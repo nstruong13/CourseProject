@@ -1,19 +1,22 @@
 let submitButton = document.getElementById("submitButton");
 
-
 submitButton.addEventListener("click", async () => {
 	queryInput = document.getElementById("queryInput").value
+  
+  var tempText;
   var imageElement = document.createElement("img");
 
-  fetch("http://localhost:105/query?query="+queryInput)
-  .then(res=>{ return res.json()})
-  .then(text=>{
-    console.log(text.html);
-    var i = 0;
-    while (i < text.html.length) {
-    	console.log(text.html[i]);
-    	document.body.insertAdjacentHTML('beforeend', text.html[i]);
-    	i = i +1;
-    }
-  })
+  queryResult = await fetch("http://localhost:105/query?query="+queryInput);
+  queryResultJson = await queryResult.json();
+  heatMapResult = await fetch("http://localhost:105/getHeatMapImage");
+  heapMapResultBlob = await heatMapResult.blob();
+
+
+  imageElement.setAttribute('src', URL.createObjectURL(heapMapResultBlob));
+  document.getElementById('body').appendChild(imageElement);
+  var i = 0;
+  while (i < queryResultJson.html.length) {
+  	document.body.insertAdjacentHTML('beforeend', queryResultJson.html[i]);
+  	i = i +1;
+  }
 });
