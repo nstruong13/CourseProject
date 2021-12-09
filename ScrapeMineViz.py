@@ -202,23 +202,24 @@ def get_visualizations(queryInput):
     first10post = {k: postings[k] for k in list(postings)[:10]}
 
     #Heatmap
-    sns.set(rc={"figure.figsize":(20,3)})
-    sns.set_theme({'font.style':'normal', 'font.serif':'Times New Roman', 'font.weight':"semibold", 'font.size':'14'})
+    sns.set(rc={"figure.figsize":(3,1.5)})
+    sns.set_theme({'font.style':'normal', 'font.serif':'Times New Roman', 'font.weight':"semibold", 'font.size':'5'})
 
     df = pd.DataFrame(first10)
     df = df.rename(index = {0: 'Document Frequency', 1: 'Total Frequency'})
 
     g = sns.heatmap(df, cmap="cividis", annot=True, fmt='g')
 
-    g.set_xticklabels(g.get_xmajorticklabels(), fontsize = 16, fontstyle = 'normal', fontweight = "semibold")
-    g.set_yticklabels(g.get_ymajorticklabels(), fontsize = 16, fontstyle = 'italic', fontweight = "roman")
-    g.set_xlabel("Term", fontsize = 16, fontstyle = 'italic', fontweight = "roman")
+    g.set_xticklabels(g.get_xmajorticklabels(), fontsize = 5, fontstyle = 'normal', fontweight = "semibold")
+    g.set_yticklabels(g.get_ymajorticklabels(), fontsize = 5, fontstyle = 'italic', fontweight = "roman")
+    g.set_xlabel("Term", fontsize = 5, fontstyle = 'italic', fontweight = "roman")
     #g.set_title("RESEARCH TERM FINDER", fontsize = 20)
 
-    g.text(0, 2.85, "Document Frequency:  Number of sites on the first page of a Google Scholar Search that contain this specific term.", ha="left", fontsize=12, fontweight = "regular")
-    g.text(0, 3.05, "Total Frequency:           Number of times this term has appeared among all sites on the first page of a Google Scholar Search.", ha="left", fontsize=12, fontweight = "regular")
-
-    g.figure.savefig("heatmap.png",dpi=300, bbox_inches = "tight")
+    #g.text(0, 2, "Document Frequency:  Number of sites on the first page of a Google Scholar Search that contain this specific term.", ha="left", fontsize=5, fontweight = "regular")
+    #g.text(0, 2, "Total Frequency:           Number of times this term has appeared among all sites on the first page of a Google Scholar Search.", ha="left", fontsize=5, fontweight = "regular")
+    
+    g.figure.savefig("heatmap.png",dpi=200, bbox_inches = "tight")
+    plt.clf()
 
     #Creating a list of html images of each posting table
     html_hold = []
