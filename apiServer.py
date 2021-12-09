@@ -1,5 +1,5 @@
 from flask import Flask, make_response, jsonify, request, send_file
-# from ScrapeMineViz import get_visualizations
+from ScrapeMineViz import get_visualizations
 
 app = Flask(__name__)
 
