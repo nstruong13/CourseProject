@@ -146,23 +146,8 @@ def tokens_lowercase(doc):
         tokens.append(token)
     return unigrams
 
-if __name__ == "__main__":
-    # change query here to user input
-    # query = "text mining"
-    query = sys.argv[1]
-    get_text_data(query)
-    '''
-    sites = scrape_google(query)
-    print(len(sites),'sites scraped for Google search of query:',query,'\n')
-    for s in sites:
-        print(s,"\n")
-    print("----------------------------")
-    print("Scraping sites........\n")
-    scraped_text = scrape_sites(sites)
-    print("----------------------------")
-    print('Scraped text.......\n')
-    print(scraped_text)
-    '''
+def get_visualizations(queryInput):
+    get_text_data(queryInput)
 
     text_file = open('scrapedtext.dat', 'r', encoding = 'utf-8')
     scraped_text = []
@@ -246,4 +231,24 @@ if __name__ == "__main__":
         #created the html script with .render()  Use IPython.display.HTMLdisplay(df_styled) to view.
         html_hold.append(df_styled)
         #dfi.export(df_styled, index+".png") #for saving the graphs as png files.
-    html_hold
+    return html_hold
+
+if __name__ == "__main__":
+    # change query here to user input
+    # query = "text mining"
+    query = sys.argv[1]
+    get_text_data(query)
+    '''
+    sites = scrape_google(query)
+    print(len(sites),'sites scraped for Google search of query:',query,'\n')
+    for s in sites:
+        print(s,"\n")
+    print("----------------------------")
+    print("Scraping sites........\n")
+    scraped_text = scrape_sites(sites)
+    print("----------------------------")
+    print('Scraped text.......\n')
+    print(scraped_text)
+    '''
+
+    
