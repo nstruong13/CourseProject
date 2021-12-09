@@ -15,6 +15,7 @@ In research settings where a new project is embarked upon, a researcher might on
 
 **Languages and Modules**
 -Python 3.7: requests, urllib, sys, string, pandas, requests_html, HTML, HTMLSession, BeautifulSoup, MetaPy, numpy, glob, pathlib, io, os, shutil, seaborn, matplotlib
+
 -Javascript
 
 ## Code Sections and Team Contributions
