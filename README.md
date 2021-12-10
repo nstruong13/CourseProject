@@ -15,9 +15,22 @@ In research settings where a new project is embarked upon, a researcher might on
 
 **Languages and Modules**
 
--Python 3.7: requests, urllib, sys, string, pandas, requests_html, HTML, HTMLSession, BeautifulSoup, MetaPy, numpy, glob, pathlib, io, os, shutil, seaborn, matplotlib
+-Python 3.7: requests, urllib, sys, string, pandas, requests_html, HTML, HTMLSession, BeautifulSoup, MetaPy, numpy, glob, pathlib, io, os, shutil, seaborn, matplotlib, flask
 
 -Javascript
+
+## Installation Documentation
+
+1. Download the folder from the GitHub page: github.com/nstruong13/CourseProject
+2. Go on extensions page of the Chrome browser, and enable Developer Mode at the top right corner.
+3. Click "Load unpacked" on the top left corner, navigate to the CourseProject-main folder, and select the chromeExtension folder. Enable the ScraperProject extension
+[The modules/packages required to be installed, most importantly Flask, are listed above]
+4. Open terminal, cd to the local CourseProject-main folder, and enter command "python apiServer.py". if this command is successful, it will print "Serving Flask app "apiServer". The last print will be a "Running on [address]".
+5. Initiate the extension by clicking on its icon in the extensions bar (or drop-down list) at the top right corner of the browser.
+6. Enter a query of term(s) you seek to find relevant terms to. (The query the presenter used was Black Scholes). It will print a heatmap showing the most related words by document and term frequencies. The heatmap will be followed by gradient-colored postings tables of each of the 10 related terms one can scroll through. (Since, this extension is in its elementary stages, the scraping process can range from a time of a second to more than a few seconds. If it doesn't print, check the terminal to see if there is a module not installed or another error.)
+7. If one wanted to compare two queries, one can enter another query and the heatmap and accompanying posting tables will follow the print of the first query. If one wanted a fresh query print, then unclick and reclick on the extension logo.
+8. The terminal will show all the vocabulary scraped from the relevant sites, in case the 10 most related terms are still unfamiliar to the user. The terminal will also display sites that were unable to be scraped.
+9. If one wants an offline version of the heatmap, a .png file will be generated within the CourseProject-main folder after every query. Make sure to save the heatmap as it will be overwritten after every query.
 
 ## Code Sections and Team Contributions
 
